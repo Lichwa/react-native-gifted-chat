@@ -91,7 +91,6 @@
     "react-native-web": "^0.11.1",
     "react-native-web-maps": "0.2.0",
     "react-test-renderer": "16.5.1",
-    "tsc": "^1.20150623.0",
     "tslint": "5.12.0",
     "tslint-config-prettier": "1.17.0",
     "typescript": "3.4.5"
@@ -105,6 +104,7 @@
     "react-native-lightbox": "^0.7.0",
     "react-native-maps": "~0.25.0",
     "react-native-parsed-text": "https://github.com/EvanBacon/react-native-parsed-text.git",
+    "tsc": "^1.20150623.0",
     "uuid": "3.3.3"
   },
   "peerDependencies": {
