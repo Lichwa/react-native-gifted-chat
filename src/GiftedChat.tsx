@@ -191,7 +191,7 @@ export interface GiftedChatState<TMessage extends IMessage = IMessage> {
 class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
   GiftedChatProps<TMessage>,
   GiftedChatState
-> {
+  > {
   static childContextTypes = {
     actionSheet: PropTypes.func,
     getLocale: PropTypes.func,
@@ -203,7 +203,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     placeholder: DEFAULT_PLACEHOLDER,
     messageIdGenerator: () => uuid.v4(),
     user: {},
-    onSend: () => {},
+    onSend: () => { },
     locale: null,
     timeFormat: TIME_FORMAT,
     dateFormat: DATE_FORMAT,
@@ -213,7 +213,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
       default: false,
     }),
     loadEarlier: false,
-    onLoadEarlier: () => {},
+    onLoadEarlier: () => { },
     isLoadingEarlier: false,
     renderLoading: null,
     renderLoadEarlier: null,
@@ -754,7 +754,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
       text: this.getTextFromProp(initialText),
       composerHeight: newComposerHeight,
       messagesContainerHeight: this.prepareMessagesContainerHeight(
-        newMessagesContainerHeight,
+        newMessagesContainerHeight - (!isIphoneX() ? 34 : 0),
       ),
     })
   }
