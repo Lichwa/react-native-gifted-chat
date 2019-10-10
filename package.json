@@ -36,7 +36,8 @@
     "test:watch": "TZ=Europe/Paris jest --watch",
     "test:coverage": "TZ=Europe/Paris jest --coverage",
     "prepublishOnly": "yarn lint && yarn build && yarn test && yarn config:npm",
-    "postpublish": "yarn config:dev"
+    "postpublish": "yarn config:dev",
+    "postinstall": "yarn build"
   },
   "jest": {
     "preset": "react-native",
