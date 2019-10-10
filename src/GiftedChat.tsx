@@ -833,6 +833,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     return (
       <View style={styles.container} onLayout={this.onInitialLayoutViewLayout}>
         {this.renderLoading()}
+        {this.renderInputToolbar()}
       </View>
     )
   }
