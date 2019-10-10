@@ -754,7 +754,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
       text: this.getTextFromProp(initialText),
       composerHeight: newComposerHeight,
       messagesContainerHeight: this.prepareMessagesContainerHeight(
-        newMessagesContainerHeight - (!isIphoneX() ? 34 : 0),
+        newMessagesContainerHeight - (isIphoneX() ? 34 : 0),
       ),
     })
   }
