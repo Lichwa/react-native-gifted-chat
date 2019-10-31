@@ -3,7 +3,6 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  Keyboard,
   ViewPropTypes,
   EmitterSubscription,
   StyleProp,
@@ -46,10 +45,7 @@ export interface InputToolbarProps {
   onPressActionButton?(): void
 }
 
-export default class InputToolbar extends React.Component<
-  InputToolbarProps,
-  { position: string }
-> {
+export default class InputToolbar extends React.Component<InputToolbarProps> {
   static defaultProps = {
     renderAccessory: null,
     renderActions: null,
@@ -58,7 +54,7 @@ export default class InputToolbar extends React.Component<
     containerStyle: {},
     primaryStyle: {},
     accessoryStyle: {},
-    onPressActionButton: () => {},
+    onPressActionButton: () => { },
   }
 
   static propTypes = {
@@ -72,48 +68,8 @@ export default class InputToolbar extends React.Component<
     accessoryStyle: ViewPropTypes.style,
   }
 
-  state = {
-    position: 'absolute',
-  }
-
   keyboardWillShowListener?: EmitterSubscription = undefined
   keyboardWillHideListener?: EmitterSubscription = undefined
-
-  componentDidMount() {
-    this.keyboardWillShowListener = Keyboard.addListener(
-      'keyboardWillShow',
-      this.keyboardWillShow,
-    )
-    this.keyboardWillHideListener = Keyboard.addListener(
-      'keyboardWillHide',
-      this.keyboardWillHide,
-    )
-  }
-
-  componentWillUnmount() {
-    if (this.keyboardWillShowListener) {
-      this.keyboardWillShowListener.remove()
-    }
-    if (this.keyboardWillHideListener) {
-      this.keyboardWillHideListener.remove()
-    }
-  }
-
-  keyboardWillShow = () => {
-    if (this.state.position !== 'relative') {
-      this.setState({
-        position: 'relative',
-      })
-    }
-  }
-
-  keyboardWillHide = () => {
-    if (this.state.position !== 'absolute') {
-      this.setState({
-        position: 'absolute',
-      })
-    }
-  }
 
   renderActions() {
     const { containerStyle, ...props } = this.props
@@ -158,7 +114,6 @@ export default class InputToolbar extends React.Component<
           [
             styles.container,
             this.props.containerStyle,
-            { position: this.state.position },
           ] as ViewStyle
         }
       >
